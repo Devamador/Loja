@@ -1,0 +1,15 @@
+#content article p{
+	margin-top: 10px;
+	text-align: center;
+
+}
+
+#content article span{
+	color: red;
+	font-weight: bold;
+}
+
+#content article .butoes{
+	text-align: center;
+
+}

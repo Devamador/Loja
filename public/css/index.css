@@ -1,0 +1,119 @@
+*{
+	margin:0;
+	padding: 0;
+
+}
+
+body{
+	font-family: Helvitica, Arial, sans-serif;
+}
+
+.topo{
+	height: 150px;
+	background-color: blue;
+	width: 100%; 
+}
+
+.topo h2{
+	text-align: right;
+}
+
+
+.img-login{
+	height: 100px;
+	float:right;
+}
+
+.img-logout{
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 25px;
+}
+/***************Menu******************/
+#menu{
+	height: 50px;
+	background-color: rgba(0,0,0,.8);
+	width: 100%; 
+}
+
+#menu ul{
+	list-style: none;
+	text-transform: uppercase;
+	margin-left: 20px; 
+}
+
+#menu li{
+	color: #fff;
+	display: inline-block;
+	padding: 10px;
+	margin: 2px;
+	transition: background-color 1s
+}
+
+#menu li:hover{
+	background-color: rgba(0,0,0,.8);
+	
+
+}
+
+#menu a{
+	text-decoration: none;
+	color:#fff;
+}
+
+#menu a:hover{
+
+	color: orange;
+}
+
+#content{
+	width: 1080px;
+	background-color: pink;
+	float: right;
+	margin-right: 20px;
+	padding-bottom: 10px;
+	
+
+}
+
+/****************Item****************/
+.item{
+	margin-top: 10px;
+	margin-left: 10px;
+	
+	background-color: #cecece;
+	border-radius: 15px;
+	border: 1px double #000;
+	display: inline-block;
+	padding: 5px;
+
+
+}
+
+.img-item{
+	text-align: center;
+}
+
+.img-produto{
+	height: 200px; 
+
+
+}
+
+.nome-produto{
+	text-align: center;
+	font-size: 14px;
+	color: blue;
+
+
+}
+
+.preco-produto{
+	text-align: right;
+	color: red;
+
+}
+
+#btn-comprar{
+	float: right;
+}

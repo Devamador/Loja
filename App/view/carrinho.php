@@ -1,13 +1,16 @@
 <?php
 	session_start();
 	require_once '../model/Produto.class.php';
+	require_once '../model/Carrinho.class.php';
 	$produto = new Produto();
+	$carrinho = new Carrinho();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">  
 	<link rel="stylesheet" type="text/css" href="../../public/css/index.css">
+	<link rel="stylesheet" type="text/css" href="../../public/css/carrinho.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
 	<title>Loja</title>
 </head>
@@ -37,32 +40,42 @@
 		</ul>
 	</nav>
 	<section id="content">
-		<article>
-		<!--	<form action="../controller/carrinho.php" method="post"> -->
-			<?php
-
-				$dados = $produto->buscarDados();
-
-				for($i = 0;$i<count($dados);$i++){
-				?>		
-					<div class="item">
-						<figure class="img-item">
-							<img src="../../public/img/produtos/<?php echo $dados[$i]['arquivo']; ?>" class="img-produto">	
-						</figure>
-						<div>
-							<p class="nome-produto"><?php echo $dados[$i]['nome']; ?></p>
-							<p class="preco-produto">R$ <?php echo $dados[$i]['preco']; ?></p>
-						</div>
-						<!--<input type="hidden" name="idProduto" value="<?php //echo $dados[$i]['id']; ?>">-->
-						<a href="../controller/carrinho.php?id=<?php echo $dados[$i]['id']; ?>" name="btn-comprar" id="btn-comprar" class="btn btn-success">Comprar</a>
-					</div>
-					<?php	
-				}
-
-					?>
+		<h3>Carrinho</h3>
 	
-		<!--	</form> -->	
-		</article>
+				<table class="table">
+					<thead class="">
+						<tr>
+							<td></td>
+							<td>Produto</td>
+							<td>Categoria</td>
+							<td>Preço</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$idCliente = $_SESSION['id'];
+						$dados=$carrinho->buscarDados($idCliente);
+						for($i = 0;$i < count($dados);$i++) {
+							$idP = $dados[$i]['idProduto'];
+							$dadosProduto=$produto->buscarDadosProduto($idP);
+					?>
+						<tr>
+						<td>
+							<img class="img" alt="imagem" src="../../public/img/produtos/<?php echo $dadosProduto
+							['arquivo'] ?>">
+						</td>
+						<td><?php echo $dadosProduto['nome'] ?></td>
+						<td><?php echo $dadosProduto['categoria'] ?></td>
+						<td><?php echo $dadosProduto['preco'] ?></td>
+
+						</tr>
+					<?php
+						}			
+					?>
+					</tbody>
+				</table>
 	</section>
 	<footer>
 		<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>

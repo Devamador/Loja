@@ -40,8 +40,8 @@
 		<ul>
 			<li><a href="index.php">Home</a></li>
 			<li><a href="minhaconta.php">Minha conta</a></li>
-			<li><a href="#">Carrinho</a></li>
-			<li><a href="#">Contato</a></li>
+			<li><a href="carrinho.php">Carrinho</a></li>
+			<li><a href="contato.php">Contato</a></li>
 		</ul>
 	</nav>
 	<section id="content">

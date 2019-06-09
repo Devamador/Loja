@@ -1,12 +1,7 @@
 <?php
 	session_start();
-	if(!$_SESSION['email']){
-		header('Location: login.php');
-	}
-	require_once '../model/Cliente.class.php';
 
-	$cliente = new Cliente();
-	$res = $cliente->buscaDadosCliente($_SESSION['id']);
+	require_once '../model/Cliente.class.php';
 
 ?>
 <!DOCTYPE html>
@@ -14,8 +9,9 @@
 <head>
 	<meta charset="utf-8">  
 	<link rel="stylesheet" type="text/css" href="../../public/css/index.css">
-	<link rel="stylesheet" type="text/css" href="../../public/css/meusdados.css">
+	<link rel="stylesheet" type="text/css" href="../../public/css/contato.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	
 	<title>Loja</title>
 </head>
 <body>
@@ -44,14 +40,18 @@
 		</ul>
 	</nav>
 	<section id="content">
-		<article>
-			<p>Olá,<span> <?php echo $res['nome']; ?></span>. O que você quer fazer?</p>
-			<div class="butoes">
-				<a href="minhaconta.php" class="btn btn-success" name="btn-minha-conta">Minha conta</a>
-				<a href="meus-dados.php" class="btn btn-success">Meus dados</a>
-				<a href="alterar-senha.php" class="btn btn-warning">Alterar senha</a>
-			</div>
-		</article>
+		<div class="contato">
+			<h3>Formulario do contato</h3>
+			<form class="form">
+				<input class="field" type="text" name="email" placeholder="Email">
+				<input class="field" type="text" name="name" placeholder="Nome">
+				<textarea class="field" name="mensage" placeholder="Digite sua menssagem aqui."></textarea>
+				<input type="submit" name="" value="Enviar">
+
+			</form>
+			
+		</div>
+
 	</section>
 	<footer>
 		<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
